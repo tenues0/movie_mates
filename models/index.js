@@ -17,7 +17,7 @@ Movies.hasMany(Ratings, {
 });
 
 Ratings.belongsTo(Movies, {
-  foreignKey: 'rating_id'
+  foreignKey: 'movies_id'
 })
 
 module.exports = {
