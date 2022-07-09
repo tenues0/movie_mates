@@ -1,0 +1,14 @@
+{{!-- Partial for each individual rating --}}
+<div class="ratings">
+    {{#each this}}
+    <section class="rating">
+        <div class="meta">
+            <h3 class="card-title">{{movie.movie_name}}</h3> 
+            <p class="text-muted small">{{format_time post.date_created}}</p> 
+        </div>
+        <div class="text">
+            {{rating}}
+        </div>
+    </section>
+    {{/each}}
+</div>
