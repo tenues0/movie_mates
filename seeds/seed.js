@@ -19,17 +19,19 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  for (const movies of movieData) {
+    await Movies.create({
+      ...movies
+    })
+  }
+
   for (const ratings of ratingData) {
     await Ratings.create({
       ...ratings
     });
   }
 
-  for (const movies of movieData) {
-    await Movies.create({
-      ...movies
-    })
-  }
+
 
   process.exit(0);
 };

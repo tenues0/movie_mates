@@ -13,10 +13,6 @@ Ratings.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    movie_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
     rating: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -29,14 +25,15 @@ Ratings.init({
             key: 'id',
         },
     },
-    // movies_id: {
-    //     type: DataTypes.INTEGER,
-    //     //allowNull: false,
-    //     references: {
-    //         model: 'movies',
-    //         key: 'id',
-    //     },
-    // },
+    movies_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'movies',
+            key: 'id',
+        },
+    }
+
 }, {
     sequelize,
     timestamps: false,
