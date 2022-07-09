@@ -1,0 +1,19 @@
+{{!-- Brings up single movie with ratings;
+From here we can add rating to selected movie --}}
+
+{{> movieinfo movie}}
+{{#if loggedIn}}
+<form class="rating-form">
+    <div>
+        <textarea name="rating-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Add rating!</button>
+    </div>
+</form>
+{{/if}}
+{{> comment post.comments}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}
