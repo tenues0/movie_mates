@@ -17,6 +17,10 @@ Ratings.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+    rating_comment: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    },
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
