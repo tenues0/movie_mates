@@ -11,13 +11,13 @@ Ratings.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+Ratings.belongsTo(Movies, {
+  foreignKey: 'movies_id'
+});
+
 Movies.hasMany(Ratings, {
   foreignKey: 'movies_id',
   onDelete: 'CASCADE'
-});
-
-Ratings.belongsTo(Movies, {
-  foreignKey: 'movies_id'
 })
 
 module.exports = {
