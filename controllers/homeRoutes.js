@@ -7,34 +7,33 @@ const {
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const movieRatingsData = await Ratings.findAll({
-      include: [{
-          model: User,
-          attributes: ['name'],
-        },
-        {
-          model: Movies,
-          attributes: ['movie_name']
-        }
-      ],
-    });
+  // Get all projects and JOIN with user data
+  // const movieRatingsData = await Ratings.findAll({
+  //   include: [{
+  //       model: User,
+  //       attributes: ['name'],
+  //     },
+  //     {
+  //       model: Movies,
+  //       attributes: ['movie_name']
+  //     }
+  //   ],
+  // });
 
-    // Serialize data so the template can read it
-    const movieRates = movieRatingsData.map((movie) => movie.get({
-      plain: true
-    }));
+  // Serialize data so the template can read it
+  // const movieRates = movieRatingsData.map((movie) => movie.get({
+  //   plain: true
+  // }));
 
-    // Pass serialized data and session flag into template
-    res.render('ratings', {
-      movieRates,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
+  // Pass serialized data and session flag into template
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return
   }
+  res.render('login');
+
 });
+
 
 router.get('/movies/:id', async (req, res) => {
   try {
@@ -84,14 +83,6 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
 
-  res.render('login');
-});
 
 module.exports = router;
