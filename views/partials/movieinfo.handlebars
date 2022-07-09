@@ -1,0 +1,13 @@
+{{!-- Partial for each individual movie --}}
+<article class="movie">
+    <div class="title">
+        <h3>{{movie_name}}</h3>
+        <p class="p-content">{{post_content}}</p>
+    </div>
+    <div class="meta">
+        {{user.username}}
+        {{format_date date_created}}
+        |
+        <a href="/post/{{id}}">{{ratings.length}} {{format_plural "comment" ratings.length}}</a>
+    </div>
+</article>
