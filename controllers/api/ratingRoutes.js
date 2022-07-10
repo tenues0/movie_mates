@@ -5,6 +5,29 @@ const {
 const withAuth = require('../../utils/auth');
 
 //utilizes post route to create a movie rating
+
+//add comment
+router.post('/', withAuth, async (req, res) => {
+    try {
+        const commentData = await Ratings.create({
+            //comment_content: req.body.comment_content,
+            user_id: req.session.user_id,
+            username: req.session.username,
+            movies_id: req.body.movies_id,
+        })
+
+        if (!commentData) {
+            res.status(500).json({ message: 'Rating not found' });
+            return;
+        }
+
+        res.status(200).json(commentData);
+        
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 router.post('/rating', withAuth, async (req, res) => {
     try {
         const movieRating = await Ratings.create({
