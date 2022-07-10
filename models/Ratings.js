@@ -21,11 +21,6 @@ Ratings.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -40,6 +35,11 @@ Ratings.init({
             model: 'user',
             key: 'id',
         },
+    date_created: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
     },
     movies_id: {
         type: DataTypes.INTEGER,

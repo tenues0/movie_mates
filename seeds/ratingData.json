@@ -1,12 +1,20 @@
 [
     {
         "rating": 9,
-        "user_id": 1,
-        "movies_id": 1
+        "rating_content": "test",
+        "username": "Sal",
+        "date_created": "07/01/22",
+        "movies_id": 1,
+        "user_id": 1
+        
     },
     {
         "rating": 3,
-        "user_id": 2,
-        "movies_id": 2
+        "rating_content": "test",
+        "username": "Lernantino",
+        "date_created": "07/01/22",
+        "movies_id": 2,
+        "user_id": 2
+        
     }
 ]
