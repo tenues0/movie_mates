@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/movies/:id', withAuth, async (req, res) => {
     try {
-        const movie = await movieApi.findByPk(req.params.id)
+        const movie = await Movies.findByPk(req.params.id)
     } catch (err) {
         res.status(500).json(err);
     }
