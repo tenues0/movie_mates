@@ -14,7 +14,7 @@
     {{!-- Render the top main nav bar --}}
     <header class="bg-primary display-flex justify-space-between align-center p-5">
       <h1>
-        MOVIE MATES
+        Movie Mates!
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->   
@@ -32,9 +32,12 @@
         </button>
 
         {{else}}
+
         <button class="btn btn-light" id="login">
           <a href="/login">Login</a>
         </button>
+        <a href="/login">Login</a>
+
         {{/if}}
 
       </nav>
