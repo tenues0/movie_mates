@@ -25,7 +25,7 @@ Ratings.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isAlphanumeric: true,
+            isAlphanumeric: true,
         },
     },
     user_id: {
@@ -35,11 +35,11 @@ Ratings.init({
             model: 'user',
             key: 'id',
         },
-    date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
     },
     movies_id: {
         type: DataTypes.INTEGER,
@@ -49,8 +49,7 @@ Ratings.init({
             key: 'id',
         },
     },
-},
-{
+}, {
     sequelize,
     timestamps: false,
     freezeTableName: true,
