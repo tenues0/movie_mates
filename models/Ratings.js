@@ -21,16 +21,13 @@ Ratings.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-<<<<<<< HEAD
-=======
     username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isAlphanumeric: true,
+            isAlphanumeric: true,
         },
     },
->>>>>>> 26181bb852bcb4c5e3a6afd59829e6eebda1ef9c
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
