@@ -7,16 +7,16 @@
                 <button type="button" class="toggle-btn" onclick="login()">Login</button>
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
-            <form id="login" class="input-group">
-                <input type="text" class="input-field" placeholder="User ID" required>
-                <input type="text" class="input-field" placeholder="Enter Password" required>
+            <form id="login" class="input-group login-form">
+                <input type="text" class="input-field" id="username-login" placeholder="User ID" required>
+                <input type="text" class="input-field" id="password-login" placeholder="Enter Password" required>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type="submit" class="submit-btn" id="login-btn">Login</button>
             </form>
-            <form id="register" class="input-group">
-                <input type="text" class="input-field" placeholder="User ID" required>
-                <input type="email" class="input-field" placeholder="Email" required>
-                <input type="text" class="input-field" placeholder="Enter Password" required>
+            <form id="register" class="input-group signup-form">
+                <input type="text" class="input-field" id="username-signup" placeholder="User ID" required>
+                <input type="email" class="input-field" id="email-signup" placeholder="Email" required>
+                <input type="password" class="input-field" id="password-signup" placeholder="Enter Password" required>
                 <input type="checkbox" class="check-box"><span>I agree to the terms and conditions.</span>
                 <button type="submit" class="submit-btn" id="signup-btn">Register</button>
             </form>
@@ -40,3 +40,4 @@
     </script>
 
 <script src="./js/login.js"></script>
+
