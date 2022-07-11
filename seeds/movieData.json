@@ -1,8 +1,14 @@
 [
     {
-        "movie_name": "Toy Story"
+        "id": 1,
+        "movie_name": "Toy Story",
+        "post_content": "my favorite scene was the rescue!",
+        "user_id": 1
     },
     {
-        "movie_name": "Michael Jordan the Legacy"
+        "id": 2,
+        "movie_name": "Michael Jordan the Legacy",
+        "post_content": "my favorite scene was the dunk!",
+        "user_id": 2
     }
 ]

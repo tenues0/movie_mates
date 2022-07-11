@@ -14,22 +14,26 @@ const seedDatabase = async () => {
     force: true
   });
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  for (const movies of movieData) {
-    await Movies.create({
-      ...movies
-    })
-  }
-
-  for (const ratings of ratingData) {
-    await Ratings.create({
-      ...ratings
+  try {
+    await User.bulkCreate(userData, {
+      individualHooks: true,
+      returning: true,
     });
-  }
+  } catch (err) {
+    console.log(err);
+  };
+
+  try {
+    await Movies.bulkCreate(movieData);
+  } catch (err) {
+    console.log(err);
+  };
+  
+  try {
+    await Ratings.bulkCreate(ratingData);
+  } catch (err) {
+    console.log(err);
+  };
 
 
 
