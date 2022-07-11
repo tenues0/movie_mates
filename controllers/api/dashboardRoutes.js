@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Movies } = require('../../models');
+const {
+  Movies
+} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //display new form for new post creation
@@ -10,6 +12,7 @@ router.get('/new', withAuth, async (req, res) => {
 
     res.render('postForm', {
       newPost,
+      logged_in: req.session.logged_in,
       username: req.session.username,
     });
 
@@ -23,7 +26,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   try {
 
     const postData = await Movies.findByPk(req.params.id);
-    const post = postData.get({ plain: true });
+    const post = postData.get({
+      plain: true
+    });
     const editPost = true;
 
     res.render('postForm', {
@@ -39,64 +44,63 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 //update post
-router.post('/update/:id', withAuth,  async (req, res) => {
-try {
+router.post('/update/:id', withAuth, async (req, res) => {
+  try {
 
-  const updatedPost = await Movies.update(
-    {
+    const updatedPost = await Movies.update({
       movie_name: req.body.movie_name,
       //post_content: req.body.post_content,
       user_id: req.session.user_id,
-    },
-    {
+    }, {
       where: {
         id: req.params.id,
       }
-    }
-  );
+    });
 
-  res.status(200).json(updatedPost);
-} catch (err) {
-  res.status(400).json(err);
-}
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // create post
-router.post('/', withAuth,  async (req, res) => {
-try {
+router.post('/', withAuth, async (req, res) => {
+  try {
 
-  const newPost = await Movies.create({
-    movie_name: req.body.movie_name,
-    //post_content: req.body.post_content,
-    user_id: req.session.user_id,
-  });
+    const newPost = await Movies.create({
+      movie_name: req.body.movie_name,
+      //post_content: req.body.post_content,
+      user_id: req.session.user_id,
+    });
 
-  res.status(200).json(newPost);
+    res.status(200).json(newPost);
 
-} catch (err) {
-  res.status(400).json(err);
-}
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // delete post
 router.delete('/:id', withAuth, async (req, res) => {
-try {
-  const deletePost = await Movies.destroy({
-    where: {
-      id: req.params.id,
+  try {
+    const deletePost = await Movies.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+
+    if (!deletePost) {
+      res.status(404).json({
+        message: 'No post found with this id!'
+      });
+      return;
     }
-  })
 
-  if (!deletePost) {
-    res.status(404).json({ message: 'No post found with this id!' });
-    return;
+    res.status(200).json(deletePost);
+
+  } catch (err) {
+    res.status(400).json(err);
   }
-
-  res.status(200).json(deletePost);
-  
-} catch (err) {
-  res.status(400).json(err);
-}
 });
 
 

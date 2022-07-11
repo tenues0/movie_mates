@@ -1,9 +1,9 @@
-
 //BUTTONHANDLERS
-  
+
 // handle event to display new post form (new post button)
 const newBtnHandler = async (event) => {
-  
+  event.preventDefault();
+
   document.location.replace('/api/dashboard/new');
 };
 
@@ -40,13 +40,13 @@ const delBtns = document.querySelectorAll(".del-btn");
 
 
 
-  //document.query selectors, one for creating, editing, and deleting post 
+//document.query selectors, one for creating, editing, and deleting post 
 document.querySelector("#new-btn").addEventListener("click", newBtnHandler);
- 
+
 editBtns.forEach(btn => {
   btn.addEventListener("click", editBtnHandler);
-  });
+});
 
 delBtns.forEach(btn => {
   btn.addEventListener("click", deleteBtnHandler);
-  }); 
+});

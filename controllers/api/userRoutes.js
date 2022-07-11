@@ -28,6 +28,7 @@ router.post('/login', async (req, res) => {
         email: req.body.email
       }
     });
+    console.log(userData);
 
     if (!userData) {
       res
@@ -55,12 +56,16 @@ router.post('/login', async (req, res) => {
       res.json({
         user: userData,
         message: 'You are now logged in!'
-      });
+
+      })
     });
+
+
 
   } catch (err) {
     res.status(400).json(err);
   }
+
 });
 
 router.post('/logout', (req, res) => {

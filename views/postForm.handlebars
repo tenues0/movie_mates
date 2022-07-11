@@ -1,23 +1,30 @@
 {{!-- Brings up single movie with ratings;
 From here we can add rating to selected movie --}}
 <div class="container">
-  <h2><u>
+  <h2>
     {{#if newPost}}
     New Post
     {{/if}}
     {{#if editPost}}
     Edit Post
     {{/if}}
-  </u></h2>
+ </h2>
 
   {{#if newPost}}
-  <form class="form newPost-form">
+    <form class="form movieSearch-form">
+      <div class="form-group">
+        <label for="searchMovie">Movie Search</label>
+        <input class="form-input" type="text" id="searchMovie">
+        <button class="btn btn-primary" id="new-btn" type="submit">Search</button>
+    </div>
+    </form>
+    <form class="form newPost-form">
   {{/if}}
   {{#if editPost}}
-  <form class="form updatePost-form" data-id="{{id}}">
+    <form class="form updatePost-form" data-id="{{id}}">
   {{/if}}
     <div class="form-group">
-      <label for="titlet">Title</label>
+      <label for="title">Title</label>
       <input class="form-input" type="text" id="post-title"
       {{#if editPost}}
       value="{{title}}"
@@ -59,8 +66,10 @@ From here we can add rating to selected movie --}}
 
 {{#if newPost}}
 <script src="/js/newPost.js"></script>
+<script src="/js/imdbRoutes.js"></script>
 {{/if}}
 
 {{#if editPost}}
 <script src="/js/updatePost.js"></script>
+<script src="/api/imdbRoutes.js"></script>
 {{/if}}
