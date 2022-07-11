@@ -21,18 +21,12 @@ Ratings.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-<<<<<<< HEAD
     username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           isAlphanumeric: true,
         },
-=======
-    rating_comment: {
-        type: DataTypes.TEXT,
-        allowNull: true,
->>>>>>> Development
     },
     user_id: {
         type: DataTypes.INTEGER,
