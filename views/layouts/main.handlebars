@@ -11,29 +11,38 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    {{!-- Render the top main nav bar --}}
+    <header class="bg-primary display-flex justify-space-between align-center p-5">
       <h1>
-        <span role="img" aria-label="money">💸</span>
-<<<<<<< HEAD
-        <a href="/">Movie Mates</a>
-=======
-        <a href="/">Movie Mates!</a>
->>>>>>> bf8bf43f0a2ed47f0c55d41a7a47f7aa5e8b4695
+        Movie Mates!
       </h1>
       <nav>
-        <!-- Conditionally render login or logout links -->
+        <!-- Conditionally render login or logout links -->   
+        <button class="btn btn-light" id="home">
+          <a href="/">Home</a>
+        </button>
+        
         {{#if logged_in}}
-        <a href="/profile">Profile</a> |
-        <button class="no-button" id="logout">Logout</button>
+        <button class="btn btn-light" id="Dashboard">
+          <a href="/dashboard">Dashboard</a>
+        </button>
+
+        <button class="btn btn-light" id="logout-btn">
+          Logout
+        </button>
+
         {{else}}
-<<<<<<< HEAD
-        <a href="/login"></a>
-=======
+
+        <button class="btn btn-light" id="login">
+          <a href="/login">Login</a>
+        </button>
         <a href="/login">Login</a>
->>>>>>> bf8bf43f0a2ed47f0c55d41a7a47f7aa5e8b4695
+
         {{/if}}
+
       </nav>
     </header>
+
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}

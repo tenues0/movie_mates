@@ -13,13 +13,26 @@ Ratings.init({
         primaryKey: true,
         autoIncrement: true,
     },
+    rating_content: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
     rating: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+<<<<<<< HEAD
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isAlphanumeric: true,
+        },
+=======
     rating_comment: {
         type: DataTypes.TEXT,
         allowNull: true,
+>>>>>>> Development
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -28,6 +41,11 @@ Ratings.init({
             model: 'user',
             key: 'id',
         },
+    date_created: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
     },
     movies_id: {
         type: DataTypes.INTEGER,
@@ -36,9 +54,9 @@ Ratings.init({
             model: 'movies',
             key: 'id',
         },
-    }
-
-}, {
+    },
+},
+{
     sequelize,
     timestamps: false,
     freezeTableName: true,
