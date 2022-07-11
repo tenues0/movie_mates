@@ -12,7 +12,7 @@
 <body>
   <div class="flex-column justify-space-around">
     {{!-- Render the top main nav bar --}}
-    <header class="bg-primary display-flex justify-space-between align-center p-5">
+    <header class=" header bg-primary display-flex justify-space-between align-center p-5">
       <h1>
         Movie Mates!
       </h1>
@@ -28,7 +28,7 @@
         </button>
 
         <button class="btn btn-light" id="logout-btn">
-          Logout
+          <a href="/login">Logout</a>
         </button>
 
         {{else}}
@@ -36,7 +36,6 @@
         <button class="btn btn-light" id="login">
           <a href="/login">Login</a>
         </button>
-        <a href="/login">Login</a>
 
         {{/if}}
 

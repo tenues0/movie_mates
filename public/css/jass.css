@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+.header {
+  color: #d9e9e8;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
@@ -357,8 +361,8 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: Arial, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
   color: #1a1a1a;
 }
@@ -424,7 +428,7 @@ button {
 a {
   color: #142664;
   text-decoration: none;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 a:hover {
@@ -985,6 +989,7 @@ a:hover {
   color: #1a1a1a;
   background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  font-family: Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .btn:hover {
@@ -1012,8 +1017,8 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
-  color: #d9e9e8;
+  background-color: #f1d66f;
+  color: black;
 }
 
 .btn.btn-primary:hover {

@@ -7,31 +7,34 @@ const {
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-  // Get all projects and JOIN with user data
-  // const movieRatingsData = await Ratings.findAll({
-  //   include: [{
-  //       model: User,
-  //       attributes: ['name'],
-  //     },
-  //     {
-  //       model: Movies,
-  //       attributes: ['movie_name']
-  //     }
-  //   ],
-  // });
+  console.log("hello" + req.session.logged_in + req.session.email);
+  try {
+    const postData = await Movies.findAll({
 
-  // Serialize data so the template can read it
-  // const movieRates = movieRatingsData.map((movie) => movie.get({
-  //   plain: true
-  // }));
+      include: [{
+        model: User,
+        attributes: ['username'],
+      }, ]
+    });
+    const posts = postData.map((post) =>
+      post.get({
+        plain: true
+      })
+    );
 
-  // Pass serialized data and session flag into template
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return
+    res.render('homepage', {
+      posts,
+      logged_in: req.session.logged_in,
+      // username: req.session.username,
+    });
+    console.log(req.session.logged_in, req.session.username);
+
+
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
-  res.render('login');
-
 });
 
 
@@ -39,46 +42,91 @@ router.get('/movies/:id', async (req, res) => {
   try {
     const moviesData = await Movies.findByPk(req.params.id, {
       include: [{
-        model: Ratings,
-        attributes: ['rating'],
+        model: User,
+        attributes: ['username'],
       }],
     });
 
     const project = projectData.get({
       plain: true
     });
+    const post = postData.get({
+      plain: true
+    });
+    const postUser = post.user.get({
+      plain: true
+    });
+    console.log(post);
 
-    res.render('project', {
-      ...project,
+    // Get all comment belongs to the post with match id from req params
+    const commentData = await Ratings.findAll({
+      where: {
+        post_id: req.params.id,
+      },
+      include: [{
+        model: User,
+        attributes: ['username'],
+      }],
+    });
+
+    const comments = commentData.map((comment) => comment.get({
+      plain: true
+    }));
+
+    res.render('post', {
+      ...post,
+      postUser,
+      comments,
+      username: req.session.username,
       logged_in: req.session.logged_in
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// GET '/login' (login form)
+router.get('/login', (req, res) => {
+  //if user logged in, redirect to dashboard
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+
+  }
+  res.render('login')
+
+});
+
+// GET '/signup' (registration form)
+// router.get('/signup', (req, res) => {
+//   res.render('signup');
+// });
+
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  console.log("getting into profile");
+// /dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: {
-        exclude: ['password']
+    const postData = await Movies.findAll({
+      where: {
+        // use the ID from the session
+        user_id: req.session.user_id
       },
-      // include: [{
-      //   model: Project
-      // }],
-    });
 
-    const user = userData.get({
+      include: [{
+        model: User,
+        attributes: ['username'],
+      }]
+    })
+    const posts = postData.map(post => post.get({
       plain: true
+    }));
+    res.render('dashboard', {
+      posts,
+      logged_in: req.session.logged_in,
+      username: req.session.username
     });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
   } catch (err) {
     res.status(500).json(err);
   }

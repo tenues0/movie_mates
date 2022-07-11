@@ -16,29 +16,34 @@
 .hero {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./images/screen.jpeg);
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./images/screen.jpeg); */
   background-position: center;
   background-size: cover;
-  position: absolute;
+
+  /* position: absolute; */
 }
 
 .form-box {
   width: 380px;
-  height: 480px;
+  height: 560px;
   position: relative;
   margin: 6% auto;
   background: #fff;
   padding: 5px;
   overflow: hidden;
+  border-radius: 10px;
+  border: 0px solid black;
+  box-shadow: 0 0 5px 0px rgb(78, 78, 78);
 }
 
 .button-box {
-  width: 220px;
+  width: 225px;
   margin: 35px auto;
   position: relative;
-  box-shadow: 0 0 20px 0px #000000;
+  box-shadow: 0 0 10px 0px #000000;
   border-radius: 30px;
+  margin-top: 60px;
 }
 
 .toggle-btn {
@@ -54,7 +59,7 @@
   top: 0;
   left: 0;
   position: absolute;
-  width: 110px;
+  width: 115px;
   height: 100%;
   background: linear-gradient(to right, #f0d6bd, #f1d66f);
   border-radius: 30px;
@@ -102,7 +107,15 @@ span {
   position: absolute;
 }
 
-#login {
+.login-btn {
+  margin-top: 30px;
+}
+
+.register-btn {
+  margin-top: 20px;
+}
+
+.login {
   left: 50px;
 }
 #register {
