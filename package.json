@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "dev": "node server.js",
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js",
     "server": "nodemon server/server.js",
     "client": "snowpack dev",
-    "chat": "concurrently \"node server.js\" \"cd server && nodemon server.js\" \"cd client && snowpack dev\""
+    "start": "concurrently \"node server.js\" \"cd server && nodemon server.js\" \"cd client && snowpack dev\""
   },
   "keywords": [],
   "author": "",
