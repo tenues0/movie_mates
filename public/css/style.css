@@ -1,24 +1,141 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
-
-.no-button {
-  background: none;
-  border: none;
+* {
   padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* adopted from joey's hw */
+.post {
+  border-bottom: 3px solid #9999ff;
+  padding-top: 30px;
+}
+
+.comment {
+  border-bottom: 3px solid lightseagreen !important;
+}
+/* -----------------------*/
+.hero {
+  height: 100%;
+  width: 100%;
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./images/screen.jpeg); */
+  background-position: center;
+  background-size: cover;
+
+  /* position: absolute; */
+}
+
+.form-box {
+  width: 380px;
+  height: 560px;
+  position: relative;
+  margin: 6% auto;
+  background: #fff;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 0px solid black;
+  box-shadow: 0 0 5px 0px rgb(78, 78, 78);
+}
+
+.button-box {
+  width: 225px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 10px 0px #000000;
+  border-radius: 30px;
+  margin-top: 60px;
+}
+
+.toggle-btn {
+  padding: 10px 30px;
   cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 115px;
+  height: 100%;
+  background: linear-gradient(to right, #f0d6bd, #f1d66f);
+  border-radius: 30px;
+  transition: 0.5s;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.input-group {
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: 0.5s;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.submit-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, #f0d6bd, #f1d66f);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+
+.check-box {
+  margin: 30px 10px 30px 0;
+}
+span {
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  bottom: 68px;
+  position: absolute;
+}
+
+.login-btn {
+  margin-top: 30px;
+}
+
+.register-btn {
+  margin-top: 20px;
+}
+
+.login {
+  left: 50px;
+}
+#register {
+  left: 450px;
+}
+
+.card-img {
+  width: 80%;
+  height: 80%;
+}
+
+#displayMovieResults {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.seperatePosters {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  border: black;
+  padding: 5px;
+  align-self: center;
 }
