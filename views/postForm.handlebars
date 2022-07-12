@@ -16,8 +16,17 @@ From here we can add rating to selected movie --}}
         <label for="searchMovie">Movie Search</label>
         <input class="form-input" type="text" id="searchMovie">
         <button class="btn btn-primary" id="new-btn" type="submit">Search</button>
-    </div>
+      </div>
     </form>
+    <div class="cardPoster">
+      <container id="displayMovieResults">        
+      </container>
+    </div>
+      {{!-- <container id="displayMovieResults">
+        
+      </container> --}}
+    </div>
+
     <form class="form newPost-form">
   {{/if}}
   {{#if editPost}}

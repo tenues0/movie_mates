@@ -121,3 +121,21 @@ span {
 #register {
   left: 450px;
 }
+
+.card-img {
+  width: 80%;
+  height: 80%;
+}
+
+#displayMovieResults {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.seperatePosters {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  border: black;
+  padding: 5px;
+  align-self: center;
+}
