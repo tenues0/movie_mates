@@ -1,4 +1,3 @@
-document.querySelector(".loadPoster").onload = generateMoviePoster(localStorage.getItem('selectedMovie'));
 
 var title;
 
@@ -18,9 +17,11 @@ function generateMoviePoster(retrieved) {
             singlePoster.innerHTML =
                 `
             <div class="singlePoster">
-            <img class="card-img posterImage" src="${moviePoster}"</img>
+            <img class="card-img posterImage" src="${moviePoster}"></img>
 
             `
             document.querySelector("#posterContainer").append(singlePoster);
         })
 }
+
+document.querySelector(".loadPoster").onload = generateMoviePoster(localStorage.getItem('selectedMovie'));
