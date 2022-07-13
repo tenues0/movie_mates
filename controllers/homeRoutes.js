@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/movies/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     const moviesData = await Movies.findByPk(req.params.id, {
       include: [{
@@ -47,10 +47,8 @@ router.get('/movies/:id', async (req, res) => {
       }],
     });
 
-    const project = projectData.get({
-      plain: true
-    });
-    const post = postData.get({
+    
+    const post = moviesData.get({
       plain: true
     });
     const postUser = post.user.get({

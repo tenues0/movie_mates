@@ -2,12 +2,9 @@
 <div class="container">
   <h2>
     {{#if newPost}}
-    New Post
+    New Posted Review
     {{/if}}
-    {{#if editPost}}
-    Edit Post
-    {{/if}}
- </h2>
+  </h2>
 
   {{#if newPost}}
     <form class="form movieSearch-form">
@@ -21,63 +18,12 @@
       <container id="displayMovieResults">        
       </container>
     </div>
-      {{!-- <container id="displayMovieResults">
-        
-      </container> --}}
-    </div>
-
-   <!-- <form class="form newPost-form">
-  {{/if}}
-  {{#if editPost}}
-    <form class="form updatePost-form" data-id="{{id}}">
-  {{/if}}
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input class="form-input" type="text" id="post-title"
-      {{#if editPost}}
-      value="{{title}}"
-      {{/if}}
-      >
-    </div>
-    <div class="form-group">
-      <label for="content">Content</label>
-      <textarea class="form-input" type="text" id="post-content" rows="5" cols="50">
-        {{#if editPost}}
-        {{post_content}}
-        {{/if}}
-      </textarea>
       
-    </div>
-    {{#if newPost}}
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">
-        Create new Post
-      </button>
-    </div>
-    {{/if}}
+</div>
 
-    {{#if editPost}}
-    <div class="flex-row">
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">
-          Update Post
-        </button>
-      </div>
-
-      <button class="btn btn-danger" data-id="{{post.id}}" id="delete-btn">
-        Delete
-      </button>
-    </div>
-    {{/if}}
-  </form>
-</div> -->
 
 {{#if newPost}}
 <!--<script src="/js/newPost.js"></script>-->
 <script src="/js/imdbRoutes.js"></script>
 {{/if}}
 
-{{#if editPost}}
-<!--<script src="/js/updatePost.js"></script>-->
-<script src="/api/imdbRoutes.js"></script>
-{{/if}}
