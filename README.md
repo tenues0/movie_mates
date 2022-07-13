@@ -18,6 +18,7 @@ Initially we as a team agreed we wanted to keep it simple and straight forward w
 ![This is a screenshot of the rough draft we made for what we wanted to website to potentially look like](./assets/images/MOVIE MATES PICTURE//////)
 
 ## Functions
+The homepage welcomes the user with previous ratings made by other users 
 The app manages to seamlessly take you through the log in and registration page when the user indicates a need to create a profile. 
 Once that is set up, it then allows for the user to move through the search engine to look up movies using the OMBD api.
 They can then chose to chat with another person with similar views by clicking on the chat feature which is using the socket.io
