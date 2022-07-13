@@ -5,13 +5,14 @@ const commentFormHandler = async (event) => {
 
     const post_id = event.target.getAttribute('data-id');
     
+    console.log(post_id);
 
     if (comment_text) {
         const response = await fetch('/api/comment', {
             method: 'POST',
             body: JSON.stringify({
-                post_id,
-                comment_text
+                comment_text,
+                post_id
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -19,7 +20,7 @@ const commentFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.reload();
+            location.reload();
         } else {
             alert(response.statusText);
         }
