@@ -1,44 +1,29 @@
-{{!-- Brings up single movie with ratings;
-From here we can add rating to selected movie --}}
-<div id="posterContainer"></div>
+{{!-- Brings up single movie for review;
+From here we can add review to selected movie --}}
+{{#if newPost}}
+<div id="posterContainer" class="loadPoster"></div>
+{{/if}}
 
-</div>
+<!--If editing a review, poster will not show-->
 
-</div>
 <div class="container">
-  <h2>
+  <h2><u>
     {{#if newPost}}
-    New Post
+    Post New Review
     {{/if}}
     {{#if editPost}}
-    Edit Post
+    Edit Current Review
     {{/if}}
- </h2>
+ </u></h2>
 
-  <!-- {{#if newPost}}
-    <form class="form movieSearch-form">
-      <div class="form-group">
-        <label for="searchMovie">Movie Search</label>
-        <input class="form-input" type="text" id="searchMovie">
-        <button class="btn btn-primary" id="new-btn" type="submit">Search</button>
-      </div>
-    </form>
-    <div class="cardPoster">
-      <container id="displayMovieResults">        
-      </container>
-    </div>
-      {{!-- <container id="displayMovieResults">
-        
-      </container> --}}
-    </div> -->
-
+  {{#if newPost}}
     <form class="form newPost-form">
   {{/if}}
   {{#if editPost}}
     <form class="form updatePost-form" data-id="{{id}}">
   {{/if}}
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title">Review Title:</label>
       <input class="form-input" type="text" id="post-title"
       {{#if editPost}}
       value="{{title}}"
@@ -46,7 +31,7 @@ From here we can add rating to selected movie --}}
       >
     </div>
     <div class="form-group">
-      <label for="content">Content</label>
+      <label for="content">Review Content:</label>
       <textarea class="form-input" type="text" id="post-content" rows="5" cols="50">
         {{#if editPost}}
         {{post_content}}
@@ -57,7 +42,7 @@ From here we can add rating to selected movie --}}
     {{#if newPost}}
     <div class="form-group">
       <button class="btn btn-primary" type="submit">
-        Create new Post
+        Submit Review!
       </button>
     </div>
     {{/if}}
@@ -66,11 +51,11 @@ From here we can add rating to selected movie --}}
     <div class="flex-row">
       <div class="form-group">
         <button class="btn btn-primary" type="submit">
-          Update Post
+          Update Review
         </button>
       </div>
 
-      <button class="btn btn-danger" data-id="{{post.id}}" id="delete-btn">
+      <button class="btn btn-danger" data-id="{{movies.id}}" id="delete-btn">
         Delete
       </button>
     </div>
@@ -85,5 +70,5 @@ From here we can add rating to selected movie --}}
 
 {{#if editPost}}
 <script src="/js/updatePost.js"></script>
-<script src="/api/loadForm.js"></script>
+<!--Not sure yet if this works in edit post <script src="/js/loadForm.js"></script>-->
 {{/if}}
