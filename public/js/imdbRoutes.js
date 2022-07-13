@@ -44,7 +44,6 @@ function movieLookup(event) {
                     <img class="card-img" src="${movieIndex.poster}" alt="Poster for ${movieIndex.title}">
                     <div class="card-body">
                     <h5 class="card-title">${movieIndex.title}</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <button class="btn search-btn" id="btn-${i}" type="submit">Select Movie</button>
                     </div>
                 </div>
