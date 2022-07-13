@@ -1,17 +1,17 @@
 const newPostHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('#post-title').value.trim();
-  const post_content = document.querySelector('#post-content').value.trim();
+  const reviewTitle = document.querySelector('#post-title').value.trim();
+  const reviewContent = document.querySelector('#post-content').value.trim();
 
 
-  if (title && post_content) {
+  if (reviewTitle && reviewContent) {
 
     const response = await fetch(`/api/dashboard`, {
       method: 'POST',
       body: JSON.stringify({
-        title,
-        post_content
+        reviewTitle,
+        reviewContent
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const newPostHandler = async (event) => {
     });
     //check if all good
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/api/dashboard');
 
     } else {
       alert('Error creating new post!');

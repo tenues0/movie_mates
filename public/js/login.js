@@ -22,7 +22,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       console.log("going to dashboard")
       // If successful, redirect the browser to the profile page
-      document.location.replace('/dashboard');
+      document.location.replace('/api/dashboard');
       console.log("You are logged in.")
     } else {
       alert('Failed to login.');
