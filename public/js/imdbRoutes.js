@@ -6,7 +6,9 @@
 
 var movieList = [];
 var movieListStringified = [];
-var movieInfo;
+var imdb;
+var singleMovie = [];
+var moviePoster;
 
 function movieLookup(event) {
     event.preventDefault();
@@ -52,25 +54,16 @@ function movieLookup(event) {
             }
             var movieParent = document.querySelector('#displayMovieResults');
             movieParent.onclick = function (e) {
-                console.log("CLICKED");
                 let target = e.target;
                 // movieInfo = target.parentElement.parentElement;
-                var imdb = document.querySelector('.imdbid').innerHTML;
-                console.log(imdb);
+                imdb = document.querySelector('.imdbid').innerHTML;
+                localStorage.setItem("selectedMovie", imdb);
                 if (target.className != 'btn search-btn') return;
-                console.log(target.className);
-                // if (target.class != 'seperatePosters') return;
-                highlight(target);
+                document.location.assign(`/api/dashboard/new`);
             };
-
-            function highlight(highlightMovie) {
-                selectedMovie = highlightMovie;
-                console.log(movieInfo);
-                selectedMovie.classList.add('highlight')
-            }
-
         })
 };
 
 
-document.querySelector('.movieSearch-form').addEventListener('submit', movieLookup);
+
+document.querySelector('.movieSearch-form').addEventListener('submit', movieLookup)

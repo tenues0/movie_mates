@@ -1,5 +1,10 @@
 {{!-- Brings up single movie with ratings;
 From here we can add rating to selected movie --}}
+<div id="posterContainer"></div>
+
+</div>
+
+</div>
 <div class="container">
   <h2>
     {{#if newPost}}
@@ -75,10 +80,10 @@ From here we can add rating to selected movie --}}
 
 {{#if newPost}}
 <script src="/js/newPost.js"></script>
-<script src="/js/imdbRoutes.js"></script>
+<script src="/js/loadForm.js"></script>
 {{/if}}
 
 {{#if editPost}}
 <script src="/js/updatePost.js"></script>
-<script src="/api/imdbRoutes.js"></script>
+<script src="/api/loadForm.js"></script>
 {{/if}}
