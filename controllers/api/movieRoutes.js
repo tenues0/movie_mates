@@ -14,13 +14,14 @@ router.get('/movies/:id', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const ratedMovies = await Project.create({
+        const ratedMovies = await Movies.create({
             ...req.body
         });
 
         res.status(200).json(ratedMovies);
     } catch (err) {
         res.status(400).json(err);
+        console.log("error")
     }
 });
 

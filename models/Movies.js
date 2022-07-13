@@ -11,7 +11,7 @@ Movies.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
+        //autoIncrement: true,
     },
     movie_name: {
         type: DataTypes.STRING,
