@@ -2,31 +2,34 @@
   <div class="col-4">
    <h2>{{username}} Dashboard</h2>
   </div>
+  <!-- new review button: searches for movies first -->
   <div class="col-2">
      <button class="btn btn-primary" id="new-btn"> + New Review</button>
   </div>
 </div>
 
+<!--populates all posted reviews by user here -->
 {{#each posts as |post|}}
   <div class="row mb-4 text-center pb-3 post">
-    <div class="col-md-5">
-      <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
-       <p>Created on {{format_date post.date_created}}</p>
-    </div>
-    <div class="col-md-7">
-      <p>
-        {{post.post_content}}
-      </p>
-    </div>
+      <div class="col-md-5">
+        <h2><a href="/post/{{movies.id}}">{{movie_name}}</a></h2>
+          <p>Created on {{format_date date_created}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{post_content}}
+        </p>
+      </div>
 
+<!--edit review button-->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-primary edit-btn" data-id="{{post.id}}">
-        Edit
-      </button>
-
-      <button class="btn btn-danger del-btn" data-id="{{post.id}}">
-        Delete
-      </button>
+        <button class="btn btn-primary edit-btn" data-id="{{post.id}}">
+          Edit
+        </button>
+<!--delete review button-->
+        <button class="btn btn-danger del-btn" data-id="{{post.id}}">
+          Delete
+        </button>
     </div>
 
   </div>
