@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const {
-  Movies
+  User, Movies, Ratings
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//display new form for new post creation
+//render search form for new post creation
 router.get('/search', withAuth, async (req, res) => {
   try {
 
@@ -21,6 +21,53 @@ router.get('/search', withAuth, async (req, res) => {
   }
 });
 
+//this should be the route to the user's dashboard
+router.get("/", withAuth, async (req, res) => {
+	console.log("Route for base Dashboard rendered");
+	try {
+    const postData = await Movies.findAll({
+		where: {
+			user_id: req.session.user_id,
+		},
+		attributes: ["id", "movie_review", "post_content", "date_created"],
+		include: [
+			{
+				model: Ratings,
+				attributes: [
+					"id",
+					"rating_content",
+					"movies_id",
+					"user_id",
+					"date_created",
+				],
+				include: {
+					model: User,
+					attributes: ["username"],
+				},
+			},
+			{
+				model: User,
+				attributes: ["username"],
+			},
+		],
+	});
+	// By default Sequelize returns lots of metadata
+    // To turn medatada off, we use the plain: true option
+	// also use 'map' with findAll
+    const posts = postData.map((data) => data.get({ plain: true }));
+			res.render('dashboard', {
+				posts,
+				username: req.session.username,
+				logged_in: req.session.loggedIn,
+			});
+} catch (err) {
+    console.log(err);
+    // returns a Server error response
+    res.status(500).json(err);
+}
+});
+
+//renders the new post page view
 router.get('/new', withAuth, async (req, res) => {
   try {
 
@@ -38,7 +85,9 @@ router.get('/new', withAuth, async (req, res) => {
 });
 
 // Route to display current post form with value to edit
+//STILL NEED TO WORK ON THIS
 router.get('/edit/:id', withAuth, async (req, res) => {
+  console.log("triggered route to edit post in dashboard routes.")
   try {
 
     const postData = await Movies.findByPk(req.params.id);
@@ -59,37 +108,45 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
-//update post
-router.post('/update/:id', withAuth, async (req, res) => {
-  try {
+//update post (need to work on this too)
+// router.post('/update/:id', withAuth, async (req, res) => {
+//   try {
 
-    const updatedPost = await Movies.update({
-      movie_name: req.body.movie_name,
-      //post_content: req.body.post_content,
-      user_id: req.session.user_id,
-    }, {
-      where: {
-        id: req.params.id,
-      }
-    });
+//     const updatedPost = await Movies.update({
+//       movie_review: req.body.movie_review,
+//       post_content: req.body.post_content,
+//       
+//     }, {
+//       where: {
+//         id: req.params.id,
+//       }
+//     });
 
-    res.status(200).json(updatedPost);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(updatedPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // create post
-router.post('/', withAuth, async (req, res) => {
+router.post('/new', withAuth, async (req, res) => {
+  console.log("triggred route to create new post")
+  console.log(req.body);
   try {
 
     const newPost = await Movies.create({
-      movie_name: req.body.movie_name,
-      //post_content: req.body.post_content,
+      
+      movie_review: req.body.movie_review,
+      post_content: req.body.post_content,
       user_id: req.session.user_id,
     });
-
+    if (!newPost) {
+      res.status(404).json({message: 'no post found with this id' });
+      return;
+    }
+    
     res.status(200).json(newPost);
+    res.redirect('/api/dashboard');
 
   } catch (err) {
     res.status(400).json(err);
