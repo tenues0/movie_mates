@@ -1,8 +1,9 @@
 <div class="row justify-content-between">
   <div class="col-4">
-   <h2>{{username}} Dashboard</h2>
+   <h2>{{user.username}} Dashboard</h2>
   </div>
   <!-- new review button: searches for movies first -->
+  <!--goes first to searchForm to search for movie, then to new postForm-->
   <div class="col-2">
      <button class="btn btn-primary" id="new-btn"> + New Review</button>
   </div>
@@ -12,7 +13,7 @@
 {{#each posts as |post|}}
   <div class="row mb-4 text-center pb-3 post">
       <div class="col-md-5">
-        <h2><a href="/post/{{movies.id}}">{{movie_name}}</a></h2>
+        <h2><a href="/post/{{movies.id}}">{{movie_review}}</a></h2>
           <p>Created on {{format_date date_created}}</p>
       </div>
       <div class="col-md-7">
