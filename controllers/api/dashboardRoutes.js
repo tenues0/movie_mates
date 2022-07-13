@@ -109,44 +109,47 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 //update post (need to work on this too)
-// router.post('/update/:id', withAuth, async (req, res) => {
-//   try {
+router.post('/update/:id', withAuth, async (req, res) => {
+  try {
 
-//     const updatedPost = await Movies.update({
-//       movie_review: req.body.movie_review,
-//       post_content: req.body.post_content,
-//       
-//     }, {
-//       where: {
-//         id: req.params.id,
-//       }
-//     });
+    const updatedPost = await Movies.update({
+      movie_review: req.body.movie_review,
+      rating: req.body.post_content,
+      
+    }, {
+      where: {
+        id: req.params.id,
+      }
+    });
 
-//     res.status(200).json(updatedPost);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-// create post
-router.post('/new', withAuth, async (req, res) => {
+// CREATE POST
+router.post('/', withAuth, async (req, res) => {
   console.log("triggred route to create new post")
   console.log(req.body);
   try {
 
     const newPost = await Movies.create({
-      
+
       movie_review: req.body.movie_review,
       post_content: req.body.post_content,
       user_id: req.session.user_id,
+      
     });
     if (!newPost) {
-      res.status(404).json({message: 'no post found with this id' });
+      res.status(404).json({message: 'create post failed' });
       return;
     }
     
     res.status(200).json(newPost);
-    res.redirect('/api/dashboard');
+    console.log(req.body)
+    console.log(req.params.id)
+    //res.redirect('/api/dashboard');
 
   } catch (err) {
     res.status(400).json(err);
@@ -165,7 +168,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     if (!deletePost) {
       res.status(404).json({
-        message: 'No post found with this id!'
+        message: 'error here with delete by id!'
       });
       return;
     }
