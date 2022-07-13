@@ -5,6 +5,22 @@ const {
 const withAuth = require('../../utils/auth');
 
 //display new form for new post creation
+router.get('/search', withAuth, async (req, res) => {
+  try {
+
+    const newPost = true;
+
+    res.render('searchForm', {
+      newPost,
+      logged_in: req.session.logged_in,
+      username: req.session.username,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/new', withAuth, async (req, res) => {
   try {
 
@@ -77,6 +93,7 @@ router.post('/', withAuth, async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+    console.log("can't create the movie post")
   }
 });
 
