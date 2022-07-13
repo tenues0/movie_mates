@@ -1,18 +1,18 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
 
-    const comment_text = document.querySelector('#new-comment').value.trim();
+    const rating_content = document.querySelector('#new-comment').value.trim();
 
-    const post_id = event.target.getAttribute('data-id');
+    const movie_review = event.target.getAttribute('data-id');
     
-    console.log(post_id);
+    console.log(movie_review);
 
-    if (comment_text) {
+    if (rating_content) {
         const response = await fetch('/api/comment', {
             method: 'POST',
             body: JSON.stringify({
-                comment_text,
-                post_id
+                rating_content,
+                movie_review
             }),
             headers: {
                 'Content-Type': 'application/json'

@@ -58,19 +58,22 @@ router.get('/', async (req, res) => {
 
 //this is the route to add comment to a post; NEED TO WORK ON THIS//
 router.get('/post/:id', async (req, res) => {
+  console.log("getting post/id")
+  console.log(req.params.id)
+  console.log(req.body)
   try {
     const moviesData = await Movies.findOne({
       where: {
         id: req.params.id,
-    },
-    attributes: ["id", "post_content", "movie_review", "date_created"],
+      },
+    attributes: ["id", "post_content", "movie_review", "date_created"],    
     include: [
         {
             model: Ratings,
             attributes: [
                 "id",
                 "rating_content",
-                "post_id",
+                "movies_id",
                 "user_id",
                 "date_created",
             ],
@@ -85,19 +88,19 @@ router.get('/post/:id', async (req, res) => {
         },
     ],
 })
-// if no data is found, return 404 and message
-if (!moviesData) {
-    res.status(404).json({ message: "No post found with this id" });
-    return;
+ // if no data is found, return 404 and message
+ if (!moviesData) {
+  res.status(404).json({ message: "error here at get by id" });
+  return;
 }
 // By default Sequelize returns lots of metadata
-// To turn metadata off, we use the plain: true option
-const comments = moviesData.get({ plain: true });
+// To turn medatada off, we use the plain: true option
+const post = moviesData.get({ plain: true });
 // render the Handlebars view here
 res.render("post", {
-    comments,
-    logged_in: req.session.logged_in,
-    username: req.session.username
+  post,
+  logged_in: req.session.logged_in,
+  username: req.session.username
 });
 } catch(err) {
 console.log(err);
