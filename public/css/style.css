@@ -139,3 +139,10 @@ span {
   padding: 5px;
   align-self: center;
 }
+.highlight {
+  background-color: red;
+}
+
+.imdbid {
+  display: none;
+}
