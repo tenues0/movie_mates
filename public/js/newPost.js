@@ -1,17 +1,17 @@
 const newPostHandler = async (event) => {
   event.preventDefault();
 
-  const reviewTitle = document.querySelector('#post-title').value.trim();
-  const reviewContent = document.querySelector('#post-content').value.trim();
+  const movie_review = document.querySelector('#post-title').value.trim();
+  const post_content = document.querySelector('#post-content').value.trim();
 
 
-  if (reviewTitle && reviewContent) {
+  if (movie_review && post_content) {
 
     const response = await fetch(`/api/dashboard`, {
       method: 'POST',
       body: JSON.stringify({
-        reviewTitle,
-        reviewContent
+        movie_review,
+        post_content
       }),
       headers: {
         'Content-Type': 'application/json',
