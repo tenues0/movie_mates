@@ -8,9 +8,13 @@ function generateMoviePoster(retrieved) {
         .then(response => response.json())
         .then(function (data) {
             console.log(data);
-            moviePoster = data.image
-            title = data.fullTitle
-            console.log(title);
+            moviePoster = data.image;
+            moviePlot = data.plot;
+            movieTitle = data.fullTitle;
+            movieDirector = data.directors;
+            movieReleaseDate = data.releaseDate;
+            movieStars = data.stars;
+            console.log(movieTitle);
 
             var singlePoster = document.createElement('div');
             console.log(moviePoster);
@@ -18,6 +22,18 @@ function generateMoviePoster(retrieved) {
                 `
             <div class="singlePoster">
             <img class="card-img posterImage" src="${moviePoster}"></img>
+            <div class="posterContents ml-3">
+            <h3>Title:</h3>
+            <p>${movieTitle}</p>
+            <h4>Plot Summary:</h4>
+            <p>${moviePlot}</p>
+            <h5>Directed By:</h5>
+            <p>${movieDirector}</p>
+            <h6>Starring:</h6>
+            <p>${movieStars}</p>
+            <h7>Theatrical Release:</h7>
+            <p>${movieReleaseDate}</p>
+            </div>
 
             `
             document.querySelector("#posterContainer").append(singlePoster);
