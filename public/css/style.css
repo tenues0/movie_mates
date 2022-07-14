@@ -152,6 +152,10 @@ span {
   display: none;
 }
 
+.movieurl {
+  display: none;
+}
+
 .posterImage {
   width: 30%;
   height: 30%;

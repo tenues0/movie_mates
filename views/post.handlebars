@@ -1,8 +1,9 @@
 <div class="text-center">
   <div class="post">
     <h2>{{movie_review}}</h2>
+    {{!-- <img class="card-img posterImage" src="{{loadposter}}"></img> --}}
     <p>{{post_content}}</p>
-    <p>Created by {{username}} on {{date_created}}</p>
+    <p>Created by {{user.username}} on {{date_created}}</p>
   </div>
 
   {{!-- Only render if comments exists --}}
@@ -17,11 +18,11 @@
 <!--form to add comments to a posted review-->
   <form class="form comment-form" data-id="{{id}}">
     <div class="form-group">
-      <label for="new-comment bg-light">New Comment:</label>
+      {{!-- <label for="new-comment bg-light">New Comment:</label>
       <input class="form-input" type="text" id="new-comment"/>
       <button class="btn btn-primary" type="submit" id="commentBtn">
       Comment
-      </button>
+      </button> --}}
     </div>
   </form>
 </div>
