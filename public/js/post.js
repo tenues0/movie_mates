@@ -4,8 +4,16 @@
 const newBtnHandler = async (event) => {
   event.preventDefault();
 
-  document.location.replace('/api/dashboard/new');
+  document.location.replace('/api/dashboard/search');
 };
+
+//work on this! 
+// const newBtnHandler = async (event) => {
+//   event.preventDefault();
+
+//   document.location.replace('/api/dashboard/new');
+// };
+
 
 // handle event to display edit current post
 const editBtnHandler = async (event) => {

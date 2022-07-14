@@ -1,13 +1,13 @@
 [
     {
         "id": 1,
-        "movie_name": "Toy Story",
+        "movie_review": "Toy Story: A Childhood Walk of Nostalgia",
         "post_content": "my favorite scene was the rescue!",
         "user_id": 1
     },
     {
         "id": 2,
-        "movie_name": "Michael Jordan the Legacy",
+        "movie_review": "Space Jam: An Underrated David v Goliath Film.",
         "post_content": "my favorite scene was the dunk!",
         "user_id": 2
     }

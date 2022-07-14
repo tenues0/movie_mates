@@ -1,0 +1,29 @@
+
+<div class="container">
+  <h2>
+    {{#if newPost}}
+    Find Movie to Review!
+    {{/if}}
+  </h2>
+
+  <!--search form for finding a movie-->
+    <form class="form movieSearch-form">
+      <div class="form-group">
+        <label for="searchMovie">Movie Search</label>
+        <input class="form-input" type="text" id="searchMovie">
+        <button class="btn btn-primary" id="new-btn" type="submit">Search</button>
+      </div>
+    </form>
+    <div class="cardPoster">
+      <container id="displayMovieResults">        
+      </container>
+    </div>
+      
+</div>
+
+
+{{#if newPost}}
+<!--<script src="/js/newPost.js"></script>-->
+<script src="/js/imdbRoutes.js"></script>
+{{/if}}
+

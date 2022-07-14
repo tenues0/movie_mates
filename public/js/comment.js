@@ -1,17 +1,22 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
 
-    const comment_text = document.querySelector('#new-comment').value.trim();
+    const rating_content = document.querySelector('#new-comment').value.trim();
 
-    const post_id = event.target.getAttribute('data-id');
-    
+    const movie_review = event.target.getAttribute('data-id');
 
-    if (comment_text) {
+    console.log(movie_review);
+
+    var loadposter = localStorage.getItem('movieUrl')
+    console.log(loadposter);
+
+    if (rating_content) {
         const response = await fetch('/api/comment', {
             method: 'POST',
+            body: loadposter,
             body: JSON.stringify({
-                post_id,
-                comment_text
+                rating_content,
+                movie_review
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -19,7 +24,7 @@ const commentFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.reload();
+            location.reload();
         } else {
             alert(response.statusText);
         }

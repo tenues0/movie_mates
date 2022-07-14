@@ -3,6 +3,7 @@ const {
   User
 } = require('../../models');
 
+//express route to create user
 router.post('/', async (req, res) => {
   try {
 
@@ -21,8 +22,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+//express route for user login; see login.handlebars template
 router.post('/login', async (req, res) => {
   try {
+    //look up user in database
     const userData = await User.findOne({
       where: {
         email: req.body.email
@@ -38,7 +41,8 @@ router.post('/login', async (req, res) => {
         });
       return;
     }
-
+    //check password in database to see if password matches.
+    //if no match -> 400 bad request, error
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -49,7 +53,7 @@ router.post('/login', async (req, res) => {
         });
       return;
     }
-
+    //upon user login, sessions variable logged_in = true; 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -67,7 +71,8 @@ router.post('/login', async (req, res) => {
   }
 
 });
-
+//user logout
+//when user logs out, session is destroyed.
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

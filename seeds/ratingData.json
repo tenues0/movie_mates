@@ -1,7 +1,7 @@
 [
     {
-        "rating": 9,
-        "rating_content": "test",
+        "rating": 5,
+        "rating_content": "comment for movie review 1, by user 1.",
         "username": "Sal",
         "date_created": "07/01/22",
         "movies_id": 1,
@@ -10,7 +10,7 @@
     },
     {
         "rating": 3,
-        "rating_content": "test",
+        "rating_content": "comment for movie review 2, by user 2.",
         "username": "Lernantino",
         "date_created": "07/01/22",
         "movies_id": 2,

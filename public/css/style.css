@@ -137,5 +137,28 @@ span {
   grid-template-columns: repeat(3, 1fr); */
   border: black;
   padding: 5px;
-  align-self: center;
+  align-items: center;
+}
+
+.singlePoster {
+  display: flex;
+  justify-content: center;
+}
+.highlight {
+  background-color: red;
+}
+
+.imdbid {
+  display: none;
+}
+
+.movieurl {
+  display: none;
+}
+
+.posterImage {
+  width: 30%;
+  height: 30%;
+  border: 2px solid black;
+  margin-bottom: 50px;
 }
