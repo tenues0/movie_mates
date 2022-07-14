@@ -2,13 +2,13 @@
     {
         "id": 1,
         "movie_review": "Toy Story: A Childhood Walk of Nostalgia",
-        "post_content": "my favorite scene was the rescue!",
+        "post_content": "The rivalry between Woody the cowboy and Buzz the astronaut is worked out as a direct parallel to any other family quarrels and it is this sense of oneness that gives the film its kick.",
         "user_id": 1
     },
     {
         "id": 2,
         "movie_review": "Space Jam: An Underrated David v Goliath Film.",
-        "post_content": "my favorite scene was the dunk!",
+        "post_content": "Space Jam boasts technical achievements with its live-action/animation hybrid approach and has some solid humor even if some jokes don't age particularly well.",
         "user_id": 2
     }
 ]
