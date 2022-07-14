@@ -41,7 +41,6 @@ function movieLookup(event) {
                 movieSearchList.innerHTML = `
                 <div class="seperatePosters">
                     <h6 class="imdbid">${movieIndex.imdb_id}</h6>
-                    <h6 class="movieurl>${movieIndex.poster}</h6>
                     <img class="card-img" src="${movieIndex.poster}" alt="Poster for ${movieIndex.title}">
                     <div class="card-body">
                     <h5 class="card-title">${movieIndex.title}</h5>
@@ -57,9 +56,7 @@ function movieLookup(event) {
                 let target = e.target;
                 // movieInfo = target.parentElement.parentElement;
                 imdb = document.querySelector('.imdbid').innerHTML;
-                posterurl = document.querySelector('.movieurl').innerHTML;
                 localStorage.setItem("selectedMovie", imdb);
-                localStorage.setItem("movieUrl", posterurl);
                 if (target.className != 'btn search-btn') return;
                 document.location.assign(`/api/dashboard/new`);
             };

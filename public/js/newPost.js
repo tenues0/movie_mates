@@ -6,6 +6,7 @@ const newPostHandler = async (event) => {
 
 
   if (movie_review && post_content) {
+    console.log(movie_review, post_content)
 
     const response = await fetch(`/api/dashboard`, {
       method: 'POST',

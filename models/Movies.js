@@ -17,10 +17,6 @@ Movies.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  movie_poster: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
   post_content: {
     type: DataTypes.STRING,
     allowNull: false,
