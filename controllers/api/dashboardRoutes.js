@@ -117,7 +117,7 @@ router.post('/update/:id', withAuth, async (req, res) => {
 
     const updatedPost = await Movies.update({
       movie_review: req.body.movie_review,
-      rating: req.body.post_content,
+      post_content: req.body.post_content,
 
     }, {
       where: {
