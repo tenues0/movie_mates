@@ -9,6 +9,10 @@ SO THAT I can access information, comment, rate and chat about them!
 The purpose of our app is for users to create an account using a new username and create reviews of movies of different genres they may search for.
 In addition to reviewing movies, the application also allows for real-time chat giving users an opportunity to have open discussions with other users that demonstrate similar tastes in film and cinema.
 
+## Website Link
+
+https://moviemates-deployer.herokuapp.com/
+
 ### Login/Register User
 
 ![login/register user](./public/images/MM2.png)
